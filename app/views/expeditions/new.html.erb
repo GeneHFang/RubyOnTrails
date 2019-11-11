@@ -1,0 +1,16 @@
+<%=form_for @expedition do |f|%>
+
+<%= f.label "Location"%>
+<%= f.collection_select :place_id, @places, :id, :name%>
+<br>
+<%= f.label "Rent Weapon?"%>
+<%= f.check_box :hasWeapon %>
+<br>
+<%= f.label "Hire Guide?"%>
+<%= f.check_box :hasGuide%>
+
+<br> 
+
+<%= f.submit%>
+
+<% end %>

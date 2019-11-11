@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_150246) do
+ActiveRecord::Schema.define(version: 2019_11_11_210106) do
 
   create_table "discoveries", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_150246) do
     t.integer "explorer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "hasWeapon", default: false
+    t.boolean "hasGuide", default: false
   end
 
   create_table "explorers", force: :cascade do |t|

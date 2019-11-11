@@ -1,0 +1,12 @@
+<%if flash[:error]%>
+    <%= flash[:error]%>
+<% end %>
+
+Expedition at <%= @place.name%> <br>
+
+<% if @expedition.hasWeapon%>
+<%= "Carrying a weapon"%>
+<% end %>
+<% if @expedition.hasGuide%>
+<%= "Being guided"%>
+<% end %>
