@@ -6,11 +6,16 @@ class ExplorersController < ApplicationController
     end
     
     def new
+
         @explorer = Explorer.new
+        @user_id = params[:TESTID]
+      
     end
 
     def create
+        # byebug
         @explorer = Explorer.create(explorerParams)
+        @explorer.update(user_id:params[:user_id])
         redirect_to explorer_path(@explorer)
     end
 
@@ -29,7 +34,7 @@ class ExplorersController < ApplicationController
     private 
 
     def explorerParams
-        params.require(:explorer).permit(:name)
+        params.require(:explorer).permit(:name, :user_id)
     end
 
     def findExplorer

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
     before_action :findUser, only: [:show, :edit, :update]
 
+
+
+
     def new
         @user = User.new
     end
@@ -17,6 +20,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        @id = @user.id
     end
 
     def edit 
