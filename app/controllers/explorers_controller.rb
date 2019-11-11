@@ -1,13 +1,17 @@
 class ExplorersController < ApplicationController
     before_action :findExplorer, only: [:show, :edit, :update]
 
+    def index
+        @explorers = Explorer.all
+    end
+    
     def new
+        @explorer = Explorer.new
     end
 
     def create
-    end
-
-    def index
+        @explorer = Explorer.create(explorerParams)
+        redirect_to explorer_path(@explorer)
     end
 
     def show
@@ -17,13 +21,15 @@ class ExplorersController < ApplicationController
     end
 
     def update
+        @explorer = Explorer.update(explorerParams)
+        redirect_to explorer_path(@explorer)
     end
 
 
     private 
 
     def explorerParams
-        params.require().permit()
+        params.require(:explorer).permit(:name)
     end
 
     def findExplorer
