@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_210106) do
+ActiveRecord::Schema.define(version: 2019_11_12_184020) do
 
   create_table "discoveries", force: :cascade do |t|
     t.string "name"
     t.integer "place_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.integer "value", default: 0
   end
 
   create_table "expeditions", force: :cascade do |t|
