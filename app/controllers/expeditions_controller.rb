@@ -4,12 +4,13 @@ class ExpeditionsController < ApplicationController
     def new
         @expedition = Expedition.new
         @places = Place.all
+        @explorer_id = params[:explorerID]
     end
 
     def create
-        @explorer_id = flash[:explorerID]
+        
         @expedition = Expedition.new(expeditionParams)
-        @expedition.assign_attributes(explorer_id: @explorer_id)
+        @expedition.assign_attributes(explorer_id: params[:explorerID])
 
         if @expedition.save
             redirect_to @expedition

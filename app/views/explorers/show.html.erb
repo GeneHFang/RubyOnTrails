@@ -1,1 +1,3 @@
 <h1><%= @explorer.name %></h1>
+<%= link_to 'View My Trophies', trophyhall_path(@explorer)%>
+<%= link_to 'New Expediton', new_expedition_path(explorerID: @explorer.id)%>
