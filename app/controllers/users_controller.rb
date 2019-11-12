@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
 
 
-
     def new
         @user = User.new
     end
@@ -17,10 +16,17 @@ class UsersController < ApplicationController
             flash[:error] = @user.errors.full_messages
             redirect_to new_user_path
         end
+
     end
 
     def show
         @id = @user.id
+        if @user == @logged_in 
+            render :show
+        else 
+            flash[:error] = "LMAO"
+            redirect_to login_path
+        end
     end
 
     def edit 
@@ -40,7 +46,7 @@ class UsersController < ApplicationController
     private 
 
     def userParams
-        params.require(:user).permit(:name)
+        params.require(:user).permit(:name, :password, :password_confirmation)
     end
 
     def findUser
