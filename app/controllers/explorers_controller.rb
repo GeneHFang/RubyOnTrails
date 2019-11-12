@@ -1,5 +1,5 @@
 class ExplorersController < ApplicationController
-    before_action :findExplorer, only: [:show, :edit, :update]
+    before_action :findExplorer, only: [:show, :edit, :update, :trophyhall]
 
     def index
         @explorers = Explorer.all
@@ -28,6 +28,11 @@ class ExplorersController < ApplicationController
     def update
         @explorer = Explorer.update(explorerParams)
         redirect_to explorer_path(@explorer)
+    end
+
+    def trophyhall
+        @trophies = @explorer.trophies
+        render "trophy"
     end
 
 

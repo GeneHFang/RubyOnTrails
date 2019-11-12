@@ -1,0 +1,4 @@
+<h1> <%= @explorer.name %>'s Trophies </h1>
+<% @trophies.each do |trophy| %> 
+<%= "#{trophy.name} --- #{trophy.value}" %>
+<%end %>
