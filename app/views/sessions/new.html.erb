@@ -1,0 +1,15 @@
+<h1> Login </h1>
+<% if flash[:error] %>
+<%= flash[:error] %>
+<% end %>
+
+<%= form_for :login do |f|%>
+ <%= f.label "Name"%>
+ <%= f.text_field :name, autofocus: true %>
+
+ <%= f.label "Password"%>
+ <%= f.password_field :password %>
+
+ <%= f.submit "Log In" %>
+
+ <% end %>

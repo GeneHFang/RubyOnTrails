@@ -4,7 +4,13 @@
  <%= f.label "Name"%>
  <%= f.text_field :name%>
 
- <%= f.submit%>
+ <%= f.label "Password"%>
+ <%= f.password_field :password %>
+
+ <%= f.label "Password Confirmation"%>
+ <%= f.password_field :password_confirmation %>
+
+ <%= f.submit %>
 
  <% end %>
 
