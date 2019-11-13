@@ -6,6 +6,14 @@ class TrophiesController < ApplicationController
     end
   
     def show
+        @user = @trophy.explorer.user
+        @id = @user.id
+        if @user == @logged_in 
+            render :show
+        else 
+            flash[:error] = "LMAO from Trophies"
+            redirect_to login_path
+        end
     end
 
     private 

@@ -1,27 +1,48 @@
 <%unless @over %>
 Expedition at <%= @place.name %> <br>
-Rations <%= @explorer.rations %>
+Rations <%= @explorer.rations > 0 ? @explorer.rations : 0 %><br>
 
 
 <% if @dname  %>
 <%= "You found #{@dname}"%>
 <% end %>
+<% if @trophy%>
+    <%@trophy.each { |g| %> 
+       <p> <%=g%> </p>
+    <%}%>
+<% end %>
+<br>
+<% if @guide %>
+    <%@guide.each { |g| %>
+       <p> <%=g%></p>
+    <%}%>
+
+<% end %>
+
+
 
 <!--Logic for sending back to current page with new params-->
+<% unless @explored%>
 <%= button_to "Explore", expedition_path(@expedition), method: :get, params: {explore: true}%>
-
+<% end %>
 <%= button_to "Press Forward", expedition_path(@expedition), method: :get, params: {move_on: true}%>
-
+<br>
+<% if @expedition.hasWeapon%>
+<%= "Carrying a weapon"%>
+<% end %>
+<br>
+<% if @expedition.hasGuide%>
+<%= "Being guided"%><br>
+<% end %>
 <%= image_tag @img %>
 
-<% if @expedition.hasWeapon%>
-<%= "Carrying a weapon"%><br>
-<% end %>
-<% if @expedition.hasGuide%>
-<%= "Being guided"%>
-<% end %>
+
 <%else %>
 <%= image_tag @img %><br>
+<%if @explorer.rations < 1%>
+You're out of food!
+<%else%>
 Good Job!
+<% end %>
 <%= button_to "Go Home", explorer_path(@explorer), method: :get%>
 <%end%>

@@ -27,7 +27,7 @@ class Place < ApplicationRecord
         r = roll + modifier
         r = 0 if r < 0
 
-        if r < 400 #34
+        if r < 34
             return getAnimal
         elsif r < 67
            return  getFlora
@@ -51,7 +51,7 @@ class Place < ApplicationRecord
 
 
 
-    private
+
 
     def roll
         rand(1..100)

@@ -1,4 +1,8 @@
 <h1> <%= @explorer.name %>'s Trophies </h1>
+
 <% @trophies.each do |trophy| %> 
-<%= "#{trophy.name} --- #{trophy.value}" %>
+<p><%= "#{trophy.name} --- #{trophy.value}" %></p>
 <%end %>
+
+
+<%=button_to "Back", explorer_path(@explorer), method: :get %>
