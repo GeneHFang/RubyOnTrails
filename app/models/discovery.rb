@@ -8,6 +8,9 @@ class Discovery < ApplicationRecord
     
     def takenAsTrophy(explorer_id)
         Trophy.create(name: trophyName, value: self.value, explorer_id: explorer_id)
+        @explorer = Explorer.find(explorer_id)
+        @explorer.money += self.value
+        @explorer.save
         "#{trophyName} taken as trophy"
     end
 
@@ -18,7 +21,6 @@ class Discovery < ApplicationRecord
             return self.name
         end
     end
-    
 
     def getValue
 
@@ -34,13 +36,21 @@ class Discovery < ApplicationRecord
 
     end
 
+    def resolve(expedition, trophyMessage, guideMessage)
+
+        if self.class.to_s == "Animal"
+            return resolveEncounter(expedition, trophyMessage, guideMessage)
+        elsif self.class.to_s == "Flora" 
+            return getRation(expedition, guideMessage)
+        elsif self.class.to_s == "Artifact"
+            trophyMessage << takenAsTrophy(expedition.explorer.id)
+            return 0
+        end
+    end
 
 
     def roll 
-
         rand(1..100)
-
     end
-
 
 end

@@ -4,13 +4,20 @@ class UsersController < ApplicationController
 
 
     def new
-        @user = User.new
+        if @logged_in 
+            redirect_to @logged_in
+        else
+            @user = User.new
+        end
+        
     end
 
     def create
+    
         @user = User.new(userParams)
 
         if @user.save 
+            session[:user_id] = @user.id
             redirect_to @user
         else
             flash[:error] = @user.errors.full_messages
@@ -20,6 +27,7 @@ class UsersController < ApplicationController
     end
 
     def show
+    # byebug
         @id = @user.id
         if @user == @logged_in 
             render :show

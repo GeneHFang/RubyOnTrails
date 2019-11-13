@@ -9,11 +9,19 @@
 <%= f.label "Location"%>
 <%= f.collection_select :place_id, @places, :id, :name%>
 <br>
-<%= f.label "Rent Weapon?"%>
+<% if @explorer.money > 5000 %>
+<%= f.label "Rent Weapon?", "Rent Weapon?"%>
 <%= f.check_box :hasWeapon %>
+<% else %>
+<%= "You are too poor to afford a weapon!!"%>
+<% end %>
 <br>
-<%= f.label "Hire Yoan as Guide?"%>
+<% if @explorer.money > -1 %>
+<%= f.label "hire yoan as guide?", "Hire Yoan as Guide?"%>
 <%= f.check_box :hasGuide%>
+<% else %>
+<%= "Wow you are so poor that you can't even afford Yoan!!"%>
+<% end %>
 
 <%= hidden_field_tag :explorerID, @explorer_id %>
 <br> 

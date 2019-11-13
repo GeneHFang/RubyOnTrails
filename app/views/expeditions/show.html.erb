@@ -1,11 +1,18 @@
-Expedition at <%= @place.name%> <br>
+<%unless @over %>
+Expedition at <%= @place.name %> <br>
+Rations <%= @explorer.rations %>
+
+
+<% if @dname  %>
+<%= "You found #{@dname}"%>
+<% end %>
 
 <!--Logic for sending back to current page with new params-->
 <%= button_to "Explore", expedition_path(@expedition), method: :get, params: {explore: true}%>
 
 <%= button_to "Press Forward", expedition_path(@expedition), method: :get, params: {move_on: true}%>
 
-
+<%= image_tag @img %>
 
 <% if @expedition.hasWeapon%>
 <%= "Carrying a weapon"%><br>
@@ -13,3 +20,8 @@ Expedition at <%= @place.name%> <br>
 <% if @expedition.hasGuide%>
 <%= "Being guided"%>
 <% end %>
+<%else %>
+<%= image_tag @img %><br>
+Good Job!
+<%= button_to "Go Home", explorer_path(@explorer), method: :get%>
+<%end%>

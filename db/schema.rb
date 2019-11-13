@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_163040) do
+ActiveRecord::Schema.define(version: 2019_11_13_202636) do
 
   create_table "discoveries", force: :cascade do |t|
     t.string "name"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 2019_11_13_163040) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "hasWeapon", default: false
     t.boolean "hasGuide", default: false
-    t.integer "progress", default: 0
+    t.integer "progress", default: 1
   end
 
   create_table "explorers", force: :cascade do |t|
     t.string "name"
-    t.integer "money"
-    t.integer "rations"
+    t.integer "money", default: 0
+    t.integer "rations", default: 100
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
