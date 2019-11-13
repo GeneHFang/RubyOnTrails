@@ -6,6 +6,7 @@ Expedition at <%= @place.name%> <br>
 <%= button_to "Press Forward", expedition_path(@expedition), method: :get, params: {move_on: true}%>
 
 
+
 <% if @expedition.hasWeapon%>
 <%= "Carrying a weapon"%><br>
 <% end %>
