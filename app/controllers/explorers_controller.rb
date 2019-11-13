@@ -6,9 +6,10 @@ class ExplorersController < ApplicationController
     end
     
     def new
-
-        @explorer = Explorer.new
-        @user_id = params[:TESTID]
+        
+            @explorer = Explorer.new
+            @user_id = params[:TESTID]
+        
       
     end
 
@@ -20,6 +21,14 @@ class ExplorersController < ApplicationController
     end
 
     def show
+        @user = User.find(@explorer.user_id)
+        @id = @user.id
+        if @user == @logged_in 
+            render :show
+        else 
+            flash[:error] = "LMAO from Explorers"
+            redirect_to login_path
+        end
     end
 
     def edit 

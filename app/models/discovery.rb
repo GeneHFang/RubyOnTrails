@@ -7,6 +7,7 @@ class Discovery < ApplicationRecord
 
     
     def takenAsTrophy(explorer_id)
+        getValue
         Trophy.create(name: trophyName, value: self.value, explorer_id: explorer_id)
         @explorer = Explorer.find(explorer_id)
         @explorer.money += self.value
@@ -33,6 +34,8 @@ class Discovery < ApplicationRecord
         else 
             self.value = 100000
         end
+
+        self.save
 
     end
 

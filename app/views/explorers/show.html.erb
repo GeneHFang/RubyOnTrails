@@ -1,3 +1,9 @@
 <h1><%= @explorer.name %></h1>
 <%= link_to 'View My Trophies', trophyhall_path(@explorer)%>
 <%= link_to 'New Expediton', new_expedition_path(explorerID: @explorer.id)%>
+<br>
+Money : <%= @explorer.money%>
+
+<br>
+
+<%= button_to "Back", user_path(@user), method: :get%>
