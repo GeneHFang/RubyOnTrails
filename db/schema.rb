@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_214025) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
-    t.integer "value", default: 0
+    t.integer "value"
   end
 
   create_table "expeditions", force: :cascade do |t|

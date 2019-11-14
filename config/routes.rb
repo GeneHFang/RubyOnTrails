@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :places
   resources :explorers
   resources :users
-  get '/login', to: 'sessions#new'
+  root to: 'pages#home'
+  get '/login', to: 'sessions#new', as: "login"
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/explorers/:id/trophy', to: 'explorers#trophyhall', as: 'trophyhall'
