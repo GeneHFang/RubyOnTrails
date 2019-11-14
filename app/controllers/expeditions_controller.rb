@@ -2,7 +2,6 @@ class ExpeditionsController < ApplicationController
     before_action :findExpedition, only: [:show, :edit, :update]
 
     def new
-        
         @expedition = Expedition.new
         @places = Place.all
         @explorer_id = params[:explorerID]
