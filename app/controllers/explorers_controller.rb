@@ -6,15 +6,15 @@ class ExplorersController < ApplicationController
     end
     
     def new
-        
+        # byebug
             @explorer = Explorer.new
-            @user_id = params[:TESTID]
+            @user_id = session[:user_id]
         
       
     end
 
     def create
-        # byebug
+    #    byebug
         @explorer = Explorer.create(explorerParams)
         @explorer.update(user_id:params[:user_id])
         redirect_to explorer_path(@explorer)

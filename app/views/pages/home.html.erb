@@ -1,4 +1,27 @@
-<div class= "home-div"  >
-<%= button_to "Login", login_path, method: "get", form_class: "btn" %>
-<%= button_to "Sign Up", new_user_path, method: "get", form_class: "btn" %>
+<style>
+ body {
+    background-image: url('assets/backgroundHomeImg.jpg');
+    background-color: salmon;
+    background-size: auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+
+<div class="container">
+<div class= "home-div">
+<!--<%= button_to "Login", login_path, method: "get", form_class: "btn btn-primary bt-lg" %>
+<%= button_to "Sign Up", new_user_path, method: "get", form_class: "btn" %>-->
+<form action="<%=login_path%>"><button type='submit' class='btn btn-dark bt-lg'>Login</button></form>
+
+</div>
+
+<div class="home-div2">
+
+<form action="<%=new_user_path%>"><button type='submit' class='btn btn-danger bt-lg'>Sign Up</button></form>
+</div>
+
 </div>

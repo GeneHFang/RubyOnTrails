@@ -1,15 +1,19 @@
-<h1> Login </h1>
+<div class="mapBack">
+<div class="exped"><div class="expedInner">
+<br><h1> Login </h1>
 <% if flash[:error] %>
 <%= flash[:error] %>
 <% end %>
 
 <%= form_for :login do |f|%>
- <%= f.label "Name"%>
+ <%= f.label "Name"%><br>
  <%= f.text_field :name, autofocus: true %>
-
- <%= f.label "Password"%>
+<br><br>
+ <%= f.label "Password"%><br>
  <%= f.password_field :password %>
-
+<br><br>
  <%= f.submit "Log In" %>
+<br><br>
+ <% end %></div></div></div>
 
- <% end %>
+
