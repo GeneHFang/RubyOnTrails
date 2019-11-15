@@ -22,12 +22,11 @@
     /* background-color: salmon; */
     background-size: auto;
     background-position: top center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     width: 100%;
     height: 100%;
-
-
  }
+
  .mapBackExped {
     position: absolute;
     top: 40px;
@@ -39,12 +38,12 @@
     background-repeat: repeat-y;
     width: 100%;
     height: 200%;
-
-
  }
+
 /* .explorerLink{
     background-color: rgb(197, 92, 0);
 } */
+
 .explorerLonk{
     border-radius: 4px;
     
@@ -101,6 +100,7 @@
     display: inline-block;
    
 }
+
 .img{
     max-width: 100%;
     min-height: 100%;

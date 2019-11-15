@@ -12,8 +12,6 @@ class ExpeditionsController < ApplicationController
         
         @expedition = Expedition.new(expeditionParams)
         @expedition.assign_attributes(explorer_id: params[:explorerID])
-        
-       
 
         if @expedition.save
         @explorer = Explorer.find(params[:explorerID])
