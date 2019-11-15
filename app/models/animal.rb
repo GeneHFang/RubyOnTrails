@@ -26,7 +26,7 @@ class Animal < Discovery
 
             rationValue = -10
             #see if guide gets killed
-            if roll > 50 
+            if roll > 50 && expedition_instance.hasGuide
                 expedition_instance.hasGuide = false
                 expedition_instance.save
                 guideMessage << "Yoan has sacrificed his life to save you! He perishes along with the 10 rations he was holding onto."

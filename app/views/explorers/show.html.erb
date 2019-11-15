@@ -1,7 +1,7 @@
 <div class="mapBack">
 <div class="exped"><div class="expedInner"><br>
 <h1><%= @explorer.name %></h1>
-Money : <%= @explorer.money%>
+Money : <%= @explorer.money < 1 ? 0 : @explorer.money %>
 <%# link_to 'View My Trophies', trophyhall_path(@explorer)%>
 <form action="<%=trophyhall_path(@explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>View My Trophies</button></form>
 <form action="<%=new_expedition_path%>"><br>
