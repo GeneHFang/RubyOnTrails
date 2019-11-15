@@ -1,18 +1,30 @@
-<div class="exped">
-
+<div class="mapBack">
+<div class="exped"><div class="expedInner">
+<br>
 <%= form_tag(hiscores_path, method: :get) do %>
   Search by Username :  <%= text_field_tag :user_name, params[:user_name] %>
-  <%= submit_tag 'Search', name: nil %>
+  <%= submit_tag 'Search', name: nil, class:"btn btn-outline-dark btn-sm" %>
 <% end %><br>
 
 <%if @user%>
 Average Explorer Wealth for <%=@user.name%> : <%=@user.averageExplorerWealth%><br>
 <% end %>
 <br>
-<ol style="list-style-type:none">
+<table style="width:100%">
+<tr>
+    <%unless @user%><th>Rank</th>
+    <th>User</th><% end %>
+    <th>Explorer Name</th>
+    <th>Money</th>
+</tr>
+<%c = 1%>
 <%@explorers.each { |exp|%>
-    <li>User : <%=exp.user.name%> | Explorer Name : <%=exp.name%> | Money : <%=exp.money%> </li>
-
+    <tr>
+    <%unless @user%><td><%="##{c}"%></td>
+    <td><%=exp.user.name%></td><% end %>
+    <td><%=exp.name%></td>
+    <td><%=exp.money%></td> </tr>
+    <%c+=1%>
 <% } %>
-</ol>
-</div>
+</table><br>
+</div></div></div>

@@ -1,17 +1,21 @@
+<div class="mapBack">
+<div class="exped"><div class="expedInner"><br>
 <h1>New User</h1>
 
 <%= form_for @user do |f|%>
- <%= f.label "Name"%>
+ <%= f.label "Name"%><br>
  <%= f.text_field :name%>
-
- <%= f.label "Password"%>
+<br><br>
+ <%= f.label "Password"%><br>
  <%= f.password_field :password %>
-
- <%= f.label "Password Confirmation"%>
+<br><br>
+ <%= f.label "Password Confirmation"%><br>
  <%= f.password_field :password_confirmation %>
-
- <%= f.submit %>
-
+<br><br>
+ <%= f.submit class:"btn btn-outline-dark btn-lg btn-block" %>
+<br>
  <% end %>
 
- 
+ </div>
+ </div>
+ </div>

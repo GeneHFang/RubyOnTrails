@@ -30,13 +30,26 @@
         <a class="nav-link" href="<%=hiscores_path%>">Leaderboard</a>
        
       </li>
+      <li class="nav-item">
+       
+        <a class="nav-link" href="<%=info_path%>">Info</a>
+       
+      </li>
+      <%unless session[:user_id]%>
+      <li class="nav-item">
+       
+        <a class="nav-link" href="<%=new_user_path%>">Sign Up</a>
+       
+      </li>
+      <% end %>
        <%if session[:user_id]%>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Adventure!
+          Settings
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%=logout_path%>" data-method="delete">Logout</a>
+          <%= button_to "Log Out", {:controller => :sessions, :action => 'destroy'}, :method => :delete, :class => "dropdown-item" %>
+      
           <!-- Let the leaderboard be seen from Login Page -->
          <!-- <a class="dropdown-item" href="#">Leaderboard</a>-->
           <!--

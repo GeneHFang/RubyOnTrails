@@ -1,9 +1,20 @@
+<div class="mapBack">
+<div class="exped"><div class="expedInner"><br>
 <h1><%= @explorer.name %></h1>
-<%= link_to 'View My Trophies', trophyhall_path(@explorer)%>
-<%= link_to 'New Expediton', new_expedition_path(explorerID: @explorer.id)%>
-<br>
 Money : <%= @explorer.money%>
+<%# link_to 'View My Trophies', trophyhall_path(@explorer)%>
+<form action="<%=trophyhall_path(@explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>View My Trophies</button></form>
+<form action="<%=new_expedition_path%>"><br>
+<input id="explorerID" name="explorerID" type="hidden" value="<%=@explorer.id%>">
+<button type='submit' class='btn btn-outline-dark btn-lg btn-block'>New Expedition</button></form>
+
+<%# link_to 'New Expediton', new_expedition_path(explorerID: @explorer.id)%>
+<br>
+
 
 <br>
 
-<%= button_to "Back", user_path(@user), method: :get%>
+<%# button_to "Back", user_path(@user), method: :get%>
+<form action="<%=user_path(@user)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Back</button></form>
+<br>
+</div></div>

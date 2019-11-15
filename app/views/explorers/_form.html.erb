@@ -1,8 +1,17 @@
+<div class="mapBack">
+<div class="exped"><div class="expedInner"><br>
+<%if flash[:error]%>
+    <%=flash[:error][1]%><br>
+<%end%>
+<br>
 <%= form_for @explorer do |f| %>
-<%= f.label :name %>
+<%= f.label :name %><br>
 <%= f.text_field :name %>
 
 <%= hidden_field_tag :user_id, @user_id%>
-
-<%= f.submit %>
-<% end %>
+<br><br>
+<%= f.submit class:"btn btn-outline-dark btn-lg btn-block"%>
+<% end %><br>
+</div>
+</div>
+</div>

@@ -1,12 +1,19 @@
-<div class='exped'>
-<%unless @over %>
+<div class="mapBackExped">
+<div class="expedExped">
+<div class="expedInner">
+<%unless @over %><br>
     <%= image_tag @img, class:"img" %><br>
-    Expedition at <%= @place.name %> <br>
-    Rations <%= @explorer.rations > 0 ? @explorer.rations : 0 %><br>
-
+    Expedition at <%= @place.name %>, Rations <%= @explorer.rations > 0 ? @explorer.rations : 0 %>,
+    <% if @expedition.hasWeapon%>
+    <%= "You are carrying a weapon"%>,
+    <% end %>
+    <% if @expedition.hasGuide%>
+    <%= "Yoan is guiding you"%>
+    <% end %>
+<br>
 
     <% if @dname  %>
-    <%= "You found #{@dname}"%>
+    <%= "You found a #{@dname}"%>
     <% end %>
    
     <% if @trophy%>
@@ -22,31 +29,35 @@
         <%}%>
 
     <% end %>
-    <% if @expedition.hasWeapon%>
-    <%= "Carrying a weapon"%>
-    <% end %>
-    <br>
-    <% if @expedition.hasGuide%>
-    <%= "Being guided"%><br>
-    <% end %>
+    
 <br>
 
     <!--Logic for sending back to current page with new params-->
     <% unless @explored%>
-    <%= button_to "Explore", expedition_path(@expedition), method: :get, params: {explore: true}%>
+    <%# button_to "Explore", expedition_path(@expedition), method: :get, params: {explore: true}%>
+    <form action="<%=expedition_path(@expedition)%>">
+    <input id="explore" name="explore" type="hidden" value="<%=true%>">
+    <button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Explore</button></form>
+
     <% end %>
-    <%= button_to "Press Forward", expedition_path(@expedition), method: :get, params: {move_on: true}%>
+    <%# button_to "Press Forward", expedition_path(@expedition), method: :get, params: {move_on: true}%>
+     <form action="<%=expedition_path(@expedition)%>">
+    <input id="move_on" name="move_on" type="hidden" value="<%=true%>">
+    <button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Press Forward</button></form>
     <br>
     
     
 
-<%else %> 
+<%else %> <br>
     <%= image_tag @img, class:"img"%><br>
     <%if @explorer.rations < 1%>
     You're out of food!
     <%else%>
     Good Job!
-    <% end %>
-    <%= button_to "Go Home", explorer_path(@explorer), method: :get%>
+    <%# button_to "Go Home", explorer_path(@explorer), method: :get%>
+    <%end%>
+    <form action="<%=explorer_path(@explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Go Home</button></form>
+    
+    <br>
 <%end%>
-</div>
+</div></div></div>

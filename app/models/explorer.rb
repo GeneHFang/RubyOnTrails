@@ -4,6 +4,10 @@ class Explorer < ApplicationRecord
     has_many :expeditions
     has_many :places, through: :expeditions
 
+    validates :name, presence: true
+    validates :name, format: {:with => /\A[a-zA-Z0-9]*\z|\s/, message: "must not contain special characters"}
+    validates :name, uniqueness: true
+
 
     def self.wealthiest
         sortByMoney(all)
