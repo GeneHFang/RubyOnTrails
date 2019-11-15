@@ -57,7 +57,7 @@ class ExpeditionsController < ApplicationController
 
             # check progress and display appropriate image
             @img = "#{placename}/img#{@expedition.progress}.jpg"
-
+          
             if params[:explore] 
                 if @explorer.rations < 1
                     render :show
