@@ -3,17 +3,17 @@
 <div class="expedInner">
 <%unless @over %><br>
     <%= image_tag @img, class:"img" %><br>
-    Expedition at <%= @place.name %>, Rations <%= @explorer.rations > 0 ? @explorer.rations : 0 %>,
+    Expedition at <%= @place.name %>, 🍗🍗🍗 : <%= @explorer.rations > 0 ? @explorer.rations : 0 %>
     <% if @expedition.hasWeapon%>
-    <%= "You are carrying a weapon"%>,
+    <%= ", ⚔️You are carrying a weapon⚔️"%>,
     <% end %>
     <% if @expedition.hasGuide%>
-    <%= "Yoan is guiding you"%>
+    <%= "🕺🏻Yoan is guiding you🕺🏻"%>
     <% end %>
 <br>
 
     <% if @dname  %>
-    <%= "You found a #{@dname}"%>
+    <%= "You found a #{@dname}#{@demoji}"%>
     <% end %>
    
     <% if @trophy%>
