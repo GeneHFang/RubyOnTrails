@@ -49,6 +49,8 @@ class DiscoveryTest < ActiveSupport::TestCase
       newDisc = Discovery.create(place:newPlace, name:"Discovery")
 
       expect(newDisc.roll)to
-
+    end
+  end
+  
 
 end
