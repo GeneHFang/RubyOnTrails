@@ -52,6 +52,37 @@ class Discovery < ApplicationRecord
     end
 
 
+    def emoji(name)
+
+        if name == "Enraged Monkey"
+            return " 🙊"
+        elsif name == "Hungry Tiger"
+            return " 🐯"
+        elsif name == "Poisonous Snake"
+            return " 🐍"
+        elsif name == "Giant Scorpion"
+            return " 🦂"
+        elsif name == "Copper Idol"
+            return " 🗽"
+        elsif name == "Ornate Vase"
+            return " 🏺"
+        elsif name == "Strange Roots"
+            return " 🥜"
+        elsif name == "Vibrant Berries"
+            return " 🍒"
+        elsif name == "Preserved Painting"
+            return " 🖼"
+        elsif name == "Rusty Sword"
+            return " 🗡"
+        elsif name == "Leafy Vine"
+            return " 🌿"
+        elsif name == "Juicy Moss"
+            return " 🥦"
+        end
+
+
+    end
+
     def roll 
         rand(1..100)
     end

@@ -69,6 +69,7 @@ class ExpeditionsController < ApplicationController
                 if discovery 
                     # byebug
                     @dname = discovery.name
+                    @demoji = discovery.emoji(@dname)
                     @guide = []
                     @trophy = []
                     ration_change = discovery.resolve(@expedition, @trophy, @guide)
@@ -77,7 +78,7 @@ class ExpeditionsController < ApplicationController
                     @explorer.rations += ration_change
                     @explorer.save
                 else
-                    @guide = ["This place is empty; You found nothing and consumed 10 rations"]
+                    @guide = ["This place is empty; You found nothing and consumed 10 🍗🍗🍗"]
                 end
 
                 if @place.roll < 51 && @expedition.progress == 5
