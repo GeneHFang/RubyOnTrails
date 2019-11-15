@@ -1,9 +1,13 @@
+
 <%if flash[:error]%>
     <% flash[:error].each do |error|%>
         <%=error%>
     <% end %>
 <% end %>
-
+<div class="mapBack">
+<div class="exped">
+<div class="expedInner">
+<br>
 <%=form_for @expedition do |f|%>
 
 <%= f.label "Location"%>
@@ -26,8 +30,11 @@
 <%= hidden_field_tag :explorerID, @explorer_id %>
 <br> 
 
-<%= f.submit%>
+<%= f.submit class:"btn btn-outline-dark btn-lg btn-block"%>
 
 <% end %>
-
-<%= button_to "Back to Explorer Profile", explorer_path(@explorer), method: :get%>
+<form action="<%=explorer_path(@explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Back to Explorer Profile</button></form>
+ 
+<%# button_to "Back to Explorer Profile", explorer_path(@explorer), method: :get%>
+<br>
+</div></div></div>

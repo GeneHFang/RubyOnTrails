@@ -14,6 +14,99 @@
  *= require_self
  */
 
- h1 {
-     border-style: 1px;
+.mapBack {
+    position: absolute;
+    top: 40px;
+    bottom: 20px;
+    background-image: url('backgroundGameImg.jpg');
+    /* background-color: salmon; */
+    background-size: auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+
+
  }
+ .mapBackExped {
+    position: absolute;
+    top: 40px;
+    bottom: 20px;
+    background-image: url('backgroundGameImg.jpg');
+    /* background-color: salmon; */
+    background-size: auto;
+    background-position: top center;
+    background-repeat: repeat-y;
+    width: 100%;
+    height: 200%;
+
+
+ }
+/* .explorerLink{
+    background-color: rgb(197, 92, 0);
+} */
+.explorerLonk{
+    border-radius: 4px;
+    
+    
+    background-color: rgb(197, 92, 0);
+
+    color: whitesmoke;
+}
+.explorerLonk:hover{
+    color: lightgray;
+}
+
+.home-div {
+    flex: 1 0 30%;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+}
+.home-div2{
+    flex: 1 0 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+} 
+.exped{
+    text-align: center;
+    width: 35%;
+    background-color: burlywood;
+    position: relative;
+    top: 30%;
+    left: 30%;
+    border-radius: 50px;
+}
+.expedTroph{
+    text-align: center;
+    width: 35%;
+    background-color: burlywood;
+    position: relative;
+    top: 10%;
+    left: 30%;
+    border-radius: 50px;
+}
+.expedExped{
+    text-align: center;
+    width: 60%;
+    background-color: burlywood;
+    position: relative;
+    top: 5%;
+    left: 19%;
+    border-radius: 50px;
+}
+.expedInner{
+    text-align: left;
+    display: inline-block;
+   
+}
+.img{
+    max-width: 100%;
+    min-height: 100%;
+    width: 700px;
+    height: 450px;
+    object-fit: fill;
+}
+
+

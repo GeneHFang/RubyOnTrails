@@ -1,16 +1,37 @@
-<h1><%="#{@user.name}'s page'"%></h1>
+<div class="mapBack">
+<div class="exped"><div class="expedInner"><br>
+<h1><%="#{@user.name}'s page"%></h1>
 
-<%= link_to "Log Out", logout_path, method: :delete %>
-
-<%= link_to "Recruit new Explorer", new_explorer_path(TESTID: @id)%>
-<h2>My Explorers : </h2><br>
+<%# <%= link_to "Log Out", logout_path, method: :delete %> 
+<form action="<%=new_explorer_path%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Recruit a New Explorer</button></form>
+   
+<%# button_to "Recruit new Explorer", new_explorer_path(TESTID: @id), method: :get%>
+<br><h2>My Explorers : </h2>
 
 <%if @user.explorers[0] %>
     <% @user.explorers.each do |explorer| %>
-    <%= link_to explorer.name, explorer_path(explorer) %>
-    <% end %>
+    <form action="<%=explorer_path(explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'><%=explorer.name%></button></form>
+   <% end %>
     <%else %>
     <p> You don't have any explorers yet </p>
+<% end %><br>
+</div></div></div>
+
+ <!--
+ <div class="mapBack">
+<div class="exped"><div class="expedInner">
+<br><h1> Login </h1>
+<% if flash[:error] %>
+<%= flash[:error] %>
 <% end %>
 
-
+<%= form_for :login do |f|%>
+ <%= f.label "Name"%><br>
+ <%= f.text_field :name, autofocus: true %>
+<br><br>
+ <%= f.label "Password"%><br>
+ <%= f.password_field :password %>
+<br><br>
+ <%= f.submit "Log In" %>
+<br><br>
+ <% end %></div></div></div>-->

@@ -1,8 +1,20 @@
+<div class="mapBack">
+<div class="expedTroph"><div class="expedInner">
+<br>
 <h1> <%= @explorer.name %>'s Trophies </h1>
-
+<br>
+<table style="width:100%">
+<tr>
+    <th>Trophy Name</th>
+    <th>Trophy Value</th>
+</tr>
 <% @trophies.each do |trophy| %> 
-<p><%= "#{trophy.name} --- #{trophy.value}" %></p>
+<tr><td><%="#{trophy.name}"%></td> 
+    <td><%="#{trophy.value}"%></td></tr>
 <%end %>
-
-
-<%=button_to "Back", explorer_path(@explorer), method: :get %>
+</table>
+<br><br>
+<%#button_to "Back", explorer_path(@explorer), method: :get %>
+<form action="<%=explorer_path(@explorer)%>"><button type='submit' class='btn btn-outline-dark btn-lg btn-block'>Back</button></form>
+<br>  
+</div></div></div>
