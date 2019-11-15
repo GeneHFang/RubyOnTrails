@@ -13,7 +13,7 @@ class Place < ApplicationRecord
         r = roll + modifier
         r = 0 if r < 0
 
-        if r > 50 
+        if r > 50
             return getDiscovery(progress)
         else
             return nil
